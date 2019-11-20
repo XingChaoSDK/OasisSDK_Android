@@ -15,7 +15,20 @@
 
 ######3. 接入步骤：
 
-1. 依赖：xxx
+1. 依赖：
+
+    1.1 项目根目录的build.gradle文件中，allprojects如下加：
+
+        allprojects {
+        repositories {
+             maven { url "https://raw.githubusercontent.com/XingChaoSDK/OasisSDK_Android/master" }
+        }
+    }
+
+    1.2 App目录下的build.gradle文件中，加依赖：
+
+
+    implementation 'com.sina.oasis.sdk:share:1.0.1'
 
 2. 混淆: 暂无
 
