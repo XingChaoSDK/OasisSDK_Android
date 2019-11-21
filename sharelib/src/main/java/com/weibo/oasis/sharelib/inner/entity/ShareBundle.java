@@ -1,5 +1,7 @@
 package com.weibo.oasis.sharelib.inner.entity;
 
+import android.net.Uri;
+
 import androidx.annotation.Keep;
 
 import java.io.Serializable;
@@ -17,15 +19,15 @@ public class ShareBundle implements Serializable {
     private String video;
 
     public ShareBundle(String title, String content, List<String> images) {
-        this.title = title;
-        this.content = content;
+        this.title = Uri.encode(title);
+        this.content = Uri.encode(content);
         this.images = images;
         isImage = true;
     }
 
     public ShareBundle(String title, String content, String video) {
-        this.title = title;
-        this.content = content;
+        this.title = Uri.encode(title);
+        this.content = Uri.encode(content);
         this.video = video;
         isImage = false;
     }
@@ -50,5 +52,18 @@ public class ShareBundle implements Serializable {
 
     public String getVideo() {
         return video;
+    }
+
+    @Override
+    public String toString() {
+        return "ShareBundle{" +
+                "isImage=" + isImage +
+                ", appKey='" + appKey + '\'' +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", packageName='" + packageName + '\'' +
+                ", images=" + images +
+                ", video='" + video + '\'' +
+                '}';
     }
 }
