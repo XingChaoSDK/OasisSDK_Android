@@ -1,6 +1,7 @@
 package com.weibo.oasis.share;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,7 +14,6 @@ import com.weibo.oasis.sharelib.ShareEntry;
 import com.zhihu.matisse.Matisse;
 import com.zhihu.matisse.MimeType;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 import android.widget.EditText;
@@ -21,7 +21,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
-public class Sample extends AppCompatActivity {
+public class Sample extends Activity {
     private static final int REQUEST_CODE_IMAGE = 123;
     private static final int REQUEST_CODE_VIDEO = 456;
 
@@ -31,7 +31,7 @@ public class Sample extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.content_main);
 
         new RxPermissions(this)
                 .request(Manifest.permission.READ_EXTERNAL_STORAGE)

@@ -1,11 +1,8 @@
 package com.weibo.oasis.sharelib;
 
 import android.content.Context;
-
-import androidx.annotation.Keep;
-import androidx.annotation.NonNull;
-
-import java.util.List;
+import android.support.annotation.Keep;
+import android.support.annotation.NonNull;
 
 @Keep
 public class FixParam {
