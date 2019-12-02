@@ -22,6 +22,7 @@
         allprojects {
         repositories {
              maven { url "https://raw.githubusercontent.com/XingChaoSDK/OasisSDK_Android/master" } // 用于androidx版本
+             
              或：maven { url "https://raw.githubusercontent.com/XingChaoSDK/OasisSDK_Android/support" }// 用于不支持androidx低版本
         }
     }
@@ -30,6 +31,7 @@
 
 
     implementation 'com.sina.oasis.sdk:share:1.0.2' // 用于androidx
+    
     或：implementation 'com.sina.oasis.sdk:share:1.0.4' // 用于不支持androidx版本
 
 2. 混淆: 暂无
