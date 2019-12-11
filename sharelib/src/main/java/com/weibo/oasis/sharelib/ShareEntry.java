@@ -152,16 +152,17 @@ public class ShareEntry {
 
     private long getOASISVersion(Context context) {
         PackageManager pm = context.getPackageManager();
-        List<PackageInfo> packages = pm.getInstalledPackages(PackageManager.GET_SIGNATURES);
-        for (PackageInfo packageInfo : packages) {
-            if (OASIS_PACKAGE_NAME.equalsIgnoreCase(packageInfo.packageName))
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                    return packageInfo.getLongVersionCode();
-                } else {
-                    return packageInfo.versionCode;
-                }
+        try {
+            PackageInfo info = pm.getPackageInfo(OASIS_PACKAGE_NAME, PackageManager.GET_CONFIGURATIONS);
+            if (info == null) return -1;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                return info.getLongVersionCode();
+            } else {
+                return info.versionCode;
+            }
+        } catch (Throwable e) {
+            return -2;
         }
-        return -1;
     }
 
     private boolean hasInstalled() {
