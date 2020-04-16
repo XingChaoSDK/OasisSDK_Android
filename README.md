@@ -91,6 +91,10 @@ App目录下的build.gradle文件中，加依赖：
 
 Change Log:
 
+androidX 版本：
+- 1.0.6: fix share bug
+- 1.0.5: 更改获取应用信息方式（美颜支持）
+
 support 版本：
-1.0.6: fix share bug
-1.0.5: 更改获取应用信息方式（美颜支持）
+- 1.0.6: fix share bug
+- 1.0.5: 更改获取应用信息方式（美颜支持）
