@@ -18,7 +18,7 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven { url "https://raw.githubusercontent.com/XingChaoSDK/OasisSDK_Android/master" }
+        maven { url "https://raw.githubusercontent.com/XingChaoSDK/OasisSDK_Android/support" }
     }
 }
 
