@@ -1,7 +1,8 @@
 package com.weibo.oasis.sharelib.inner.entity;
 
 import android.net.Uri;
-import android.support.annotation.Keep;
+
+import androidx.annotation.Keep;
 
 import java.io.Serializable;
 import java.util.List;

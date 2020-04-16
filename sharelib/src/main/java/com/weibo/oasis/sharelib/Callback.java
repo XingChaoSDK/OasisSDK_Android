@@ -1,7 +1,7 @@
 package com.weibo.oasis.sharelib;
 
 
-import android.support.annotation.Keep;
+import androidx.annotation.Keep;
 
 @Keep
 public interface Callback {
