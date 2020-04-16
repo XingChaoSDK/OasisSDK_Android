@@ -1,36 +1,40 @@
-####绿洲分享SDK——Android
+# 绿洲分享SDK——Android
 
 支持向绿洲应用分享图片或视频的SDK
 
-#####1. SDK有哪些功能？
+- SDK有哪些功能？
 
-* 分享视频单个视频（超过60秒会被自动裁剪前60秒）
-* 分享多张图片（超过12张将会取前面12张）
+分享视频单个视频（超过60秒会被自动裁剪前60秒）
+分享多张图片（超过12张将会取前面12张）
 
-######2. 有哪些在注意点？
+- 有哪些在注意点？
 
-* 未下载绿洲将会启动下载引导页
-* 未登录将会绿洲的登录流程，原先带进来的图片或视频会丢弃
+未下载绿洲将会启动下载引导页
+未登录将会绿洲的登录流程，原先带进来的图片或视频会丢弃
 
 
-######3. 接入步骤：
+- 接入步骤：
 
 1. 依赖：
 
-    1.1 项目根目录的build.gradle文件中，allprojects如下加：
+项目根目录的build.gradle文件中，allprojects如下加：
 
-        allprojects {
+```gradle
+    allprojects {
         repositories {
              maven { url "https://raw.githubusercontent.com/XingChaoSDK/OasisSDK_Android/master" } // 用于androidx版本
-             或：maven { url "https://raw.githubusercontent.com/XingChaoSDK/OasisSDK_Android/support" }// 用于不支持androidx低版本
+             //或：maven { url "https://raw.githubusercontent.com/XingChaoSDK/OasisSDK_Android/support" }// 用于不支持androidx低版本
         }
     }
+```
 
-    1.2 App目录下的build.gradle文件中，加依赖：
 
+App目录下的build.gradle文件中，加依赖：
 
+```gradle
     implementation 'com.sina.oasis.sdk:share:1.0.2' // 用于androidx
-    或：implementation 'com.sina.oasis.sdk:share:1.0.5' // 用于不支持androidx版本
+    //或：implementation 'com.sina.oasis.sdk:share:1.0.5' // 用于不支持androidx版本
+```
 
 2. 混淆: 暂无
 
@@ -38,27 +42,30 @@
 
 4. Java:
 
-    4.1 准备参数和全局实例
+```Java
 
-       FixParam fixParam = new FixParam.Builder(getApplicationContext())
-                  .appKey("这里是你的AppKey")
-                  .build();
-       ShareEntry entry = new ShareEntry(fixParam);
+    //准备参数和全局实例
+    FixParam fixParam = new FixParam.Builder(getApplicationContext())
+           .appKey("这里是你的AppKey")
+           .build();
+    ShareEntry entry = new ShareEntry(fixParam);
 
-     4.2 随时分享
-       entry.shareImages("title图片", "content", imagesList,
+    //随时分享
+    entry.shareImages("title图片", "content", imagesList,
                      new Callback() {
                          @Override
                          public void onFinish(int code) {}
                      });
 
-       entry.shareVideo("发视频标题", "视频时候内容", videoPath,
+    entry.shareVideo("发视频标题", "视频时候内容", videoPath,
                                new Callback() {
                                    @Override
                                    public void onFinish(int code) {}
                                });
 
-#####4. 返回码说明
+```
+
+- 返回码说明
 
     // 100 以下是和iOS保持一致的，其他为安卓端特有
     int OASIS_ACTIVITY_NOT_FOUND = 160; // 跳转绿洲失败
@@ -85,4 +92,5 @@
 Change Log:
 
 support 版本：
+1.0.6: fix share bug
 1.0.5: 更改获取应用信息方式（美颜支持）

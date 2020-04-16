@@ -28,7 +28,6 @@ public class ShareActivity extends Activity {
 
         Serializable data = origin.getSerializableExtra(DATA_KEY);
         Intent intent = new Intent("OASIS.SHARE.PUBLISH.ACTION", Uri.parse("oasicshare://share.medias?" + DATA_KEY + "=" + new Gson().toJson(data)));
-        intent.putExtra(DATA_KEY, data);
         try {
             startActivityForResult(intent, REQUEST_CODE);
         } catch (Exception e) {
